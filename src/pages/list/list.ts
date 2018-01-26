@@ -11,7 +11,7 @@ export class ListPage {
   selectedItem: any;
   items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private lisProvider::ListProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private lisProvider:ListProvider) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
     this.items = lisProvider.getList();
