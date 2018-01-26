@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
@@ -38,7 +39,8 @@ import { ListProvider } from '../providers/list/list';
     SplashScreen,
     AppPreferences,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ListProvider
+    ListProvider,
+    SQLite
   ]
 })
 export class AppModule {}
