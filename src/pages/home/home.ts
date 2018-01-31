@@ -11,7 +11,7 @@ export class HomePage {
   listNews = [];
 
   constructor(public navCtrl: NavController, public sqlite: SQLite) {
-    this.createDB();
+    this.createDB().then(() => this.updateListNews());
   }
 
   getDB() {
@@ -23,19 +23,16 @@ export class HomePage {
 
   createDB() {
     return this.getDB().then((sql) => {
-      sql.executeSql('CREATE TABLE news (desc TEXT)', []);
-    })
+      sql.executeSql('CREATE TABLE news (desc TEXT);', []);
+    }).catch((e) => console.log(e));
   }
 
-  updateNews(){
+  updateListNews(){
     return this.getDB().then((sql) => {
       sql.executeSql('SELECT * FROM news;', []).then((news) => {
         this.listNews = [];
         for (let i = 0; i < news.rows.lenght; i++) {
-          // let new = news.rows.item(i);
-          // this.listNews.push({
-          //   desc: new.desc,
-          // });
+          this.insert(news.rows.item(i).desc);
         }
       });
     });
