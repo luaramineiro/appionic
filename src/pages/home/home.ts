@@ -8,12 +8,16 @@ import { AppPreferences } from '@ionic-native/app-preferences';
 })
 export class HomePage {
   id_favorite:string;
+  noticias = [];
 
-  constructor(public navCtrl: NavController, private appPrefs:AppPreferences) {
-    this.id_favorite = 'TESTE';
-    //get preferences
-    appPrefs.fetch('dict', 'id_favorite').then((res) => this.id_favorite = res);
-    //set preferences
-    appPrefs.store('dict', 'id_favorite', this.id_favorite).then(() => console.log('save value!'));
+  constructor(public navCtrl: NavController) {
+  }
+
+  inserir(descricao) {
+    this.noticias.push({descricao});
+  }
+
+  removerPrimeiro() {
+    this.noticias.shift();
   }
 }

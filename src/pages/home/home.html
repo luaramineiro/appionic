@@ -8,13 +8,21 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <h3>Noticias</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-list>
+    <ion-item>
+      <ion-label>Descrição</ion-label>
+      <ion-input #txtDesc></ion-input>
+    </ion-item>
+  </ion-list>
 
-  <p>{{id_favorite}}</p>
+  <button ion-button outline color="secondary" (click)="inserir(txtDesc.value)">Inserir</button>
+  <button ion-button outline color="danger" (click)="removerPrimeiro()">Remover Primeiro</button>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-list>
+    <ion-item *ngFor="let noticia of noticias">
+      {{noticias.descricao}}
+    </ion-item>
+  </ion-list>
 </ion-content>
