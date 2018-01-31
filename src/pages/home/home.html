@@ -17,12 +17,12 @@
     </ion-item>
   </ion-list>
 
-  <button ion-button outline color="secondary" (click)="inserir(txtDesc.value)">Inserir</button>
+  <button ion-button outline color="secondary" (click)="insert(txtDesc.value);">Inserir</button>
   <button ion-button outline color="danger" (click)="removerPrimeiro()">Remover Primeiro</button>
 
   <ion-list>
-    <ion-item *ngFor="let noticia of noticias">
-      {{noticias.descricao}}
+    <ion-item *ngFor="let new of listNews">
+      {{new.desc}}
     </ion-item>
   </ion-list>
 </ion-content>
